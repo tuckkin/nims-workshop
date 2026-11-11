@@ -31,7 +31,7 @@
         nvcr.io/nim/meta/llama-3.1-8b-instruct:1.3.3 list-model-profiles
     ```
     Sample Output: <br>
-    ![image](https://git.apps.lab-ocp.cnasg.dellcsc.com/workshop/NIMs/raw/branch/main/images/lab1-list-model-profiles.png)
+    ![image](images/lab1-list-model-profiles.png)
 
 <br>
 
