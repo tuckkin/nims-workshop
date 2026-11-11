@@ -55,7 +55,7 @@
     watch nvidia-smi
     ```
     Sample Output: <br>
-    ![image](https://git.apps.lab-ocp.cnasg.dellcsc.com/workshop/NIMs/raw/branch/main/images/lab1-nvidia-smi.png)
+    ![image](images/lab1-nvidia-smi.png)
 
 <br>
 
@@ -65,7 +65,7 @@
     curl -s -X GET 'http://0.0.0.0:8000/v1/models' | jq
     ```
     Sample Output: <br>
-    ![image](https://git.apps.lab-ocp.cnasg.dellcsc.com/workshop/NIMs/raw/branch/main/images/lab1-list-running-models.png)
+    ![image](images/lab1-list-running-models.png)
 
     
     ```bash
@@ -81,7 +81,7 @@
     
     ```
     Sample Output: <br>
-    ![image](https://git.apps.lab-ocp.cnasg.dellcsc.com/workshop/NIMs/raw/branch/main/images/lab1-test-query.png)
+    ![image](images/lab1-test-query.png)
 
 <br><br><br>
 
@@ -145,7 +145,7 @@
         --max-threads=256
     ```
     Sample Output: <br>
-    ![image](https://git.apps.lab-ocp.cnasg.dellcsc.com/workshop/NIMs/raw/branch/main/images/lab1-genai-perf.png)
+    ![image](images/lab1-genai-perf.png)
 
 <br>
 
