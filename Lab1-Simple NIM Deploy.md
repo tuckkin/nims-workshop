@@ -112,7 +112,7 @@
     mkdir -p "$WORKDIR"
     docker run -it --rm --net=host --gpus=all \
         -v $WORKDIR:/workdir \
-        -v $HF_TOKENIZER:/root/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct \
+        -v $HF_TOKENIZER:/root/tokenizer \
         nvcr.io/nvidia/tritonserver:${RELEASE}-py3-sdk
     ```
 
@@ -140,7 +140,7 @@
         --extra-inputs max_tokens:$OUTPUT_SEQUENCE_LENGTH \
         --extra-inputs min_tokens:$OUTPUT_SEQUENCE_LENGTH \
         --extra-inputs ignore_eos:true \
-        --tokenizer meta-llama/Llama-3.1-8B-Instruct
+        --tokenizer /root/tokenizer
     ```
     Sample Output: <br>
     ![image](images/lab1-genai-perf.png)
