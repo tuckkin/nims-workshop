@@ -156,6 +156,14 @@
 
 <br>
 
+5. Stop running the instance of NIM with Llama-3.1-8B-Instruct  
+    
+    ```bash
+    docker stop llama-3.1-8b-instruct
+    ```
+
+<br>
+
 >**ADDITIONAL READING**
 >
 >Performing Benchmark Sweep for various use cases: 
