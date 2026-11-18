@@ -40,6 +40,7 @@
     ```bash
     export MODEL_REPO=~/workspace/models/Llama-3.1-8B-Instruct
     docker run -it --rm -d \
+        --name llama-3.1-8b-instruct \
         --gpus all \
         --shm-size=16GB \
         -e NIM_MODEL_NAME=/model-repo \
