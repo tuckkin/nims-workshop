@@ -90,10 +90,12 @@
 1. Copy the Llama 3.1 8B Instruct's tokenizer.
     
     ```bash
-    export HF_TOKENIZER=~/tokenizer
+    export HF_TOKENIZER=~/workspace/tokenizers/Llama-3.1-8B-Tokenizer
     mkdir -p $HF_TOKENIZER
 
-    cp -ar /mnt/nfs-share/tokenizer/hub $HF_TOKENIZER
+    cd ~/workspace/models/Llama-3.1-8B-Instruct/
+    cp tokenizer.json tokenizer_config.json special_tokens_map.json $HF_TOKENIZER
+    cd ~
     ```    
     
 
