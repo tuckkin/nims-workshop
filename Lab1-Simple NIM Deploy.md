@@ -132,7 +132,7 @@
         -m $MODEL \
         --endpoint-type chat \
         --streaming \
-        -u localhost:8000 \
+        --url http://localhost:8000 \
         --synthetic-input-tokens-mean $INPUT_SEQUENCE_LENGTH \
         --synthetic-input-tokens-stddev $INPUT_SEQUENCE_STD \
         --concurrency $CONCURRENCY \
