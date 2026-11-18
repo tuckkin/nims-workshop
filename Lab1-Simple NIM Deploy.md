@@ -112,7 +112,7 @@
     mkdir -p "$WORKDIR"
     docker run -it --rm --net=host --gpus=all \
         -v $WORKDIR:/workdir \
-        -v $HF_TOKENIZER:/root/.cache/huggingface \
+        -v $HF_TOKENIZER:/root/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct \
         nvcr.io/nvidia/tritonserver:${RELEASE}-py3-sdk
     ```
 
