@@ -49,7 +49,7 @@
         nvcr.io/nim/meta/llama-3.1-8b-instruct:2.1.7
     ```
 
-    ***Allow approx. 30 seconds for the model to be loaded into GPU memory.***
+    ***Allow approx. 60 seconds for the model to be loaded into GPU memory.***
     ```bash
     # Monitor GPU Memory Utilization
     watch nvidia-smi
