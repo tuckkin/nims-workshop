@@ -131,7 +131,6 @@
     genai-perf profile \
         -m $MODEL \
         --endpoint-type chat \
-        --service-kind openai \
         --streaming \
         -u localhost:8000 \
         --synthetic-input-tokens-mean $INPUT_SEQUENCE_LENGTH \
