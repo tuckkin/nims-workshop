@@ -128,7 +128,7 @@
     export MODEL=meta/llama-3.1-8b-instruct
     
     cd /workdir
-    genai-perf \
+    genai-perf profile \
         -m $MODEL \
         --endpoint-type chat \
         --service-kind openai \
