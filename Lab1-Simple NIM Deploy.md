@@ -28,7 +28,7 @@
         --shm-size=16GB \
         -u $(id -u) \
         -p 8000:8000 \
-        nvcr.io/nim/meta/llama-3.1-8b-instruct:1.3.3 list-model-profiles
+        nvcr.io/nim/meta/llama-3.1-8b-instruct:2.1.7 list-model-profiles
     ```
     Sample Output: <br>
     ![image](images/lab1-list-model-profiles.png)
@@ -46,7 +46,7 @@
         -v $MODEL_REPO:/model-repo \
         -u $(id -u) \
         -p 8000:8000 \
-        nvcr.io/nim/meta/llama-3.1-8b-instruct:1.3.3
+        nvcr.io/nim/meta/llama-3.1-8b-instruct:2.1.7
     ```
 
     ***Allow approx. 30 seconds for the model to be loaded into GPU memory.***
