@@ -105,7 +105,7 @@
     
     
     ```bash
-    export RELEASE="24.06" # recommend using latest releases in yy.mm format
+    export RELEASE="26.11" # recommend using latest releases in yy.mm format
     export WORKDIR=~/genai-perf
     mkdir -p "$WORKDIR"
     docker run -it --rm --net=host --gpus=all \
