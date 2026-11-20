@@ -1,6 +1,6 @@
 # Lab 2 - Deployment Enterprise RAG and Agentic RAG
 
-In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for a single node deployment, and using NVIDIA-hosted LLM model on cloud.
+In this Hands-On Lab, you will deploy the NVIDIA RAG Blueprint with Docker Compose for a single node deployment, and using NVIDIA-hosted LLM model on cloud.
 
 ## 2.1 Deploy Enterprise RAG
 ### 2.1.1 Register for NVIDIA account and request for API Key
