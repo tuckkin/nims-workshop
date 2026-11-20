@@ -16,7 +16,7 @@ In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for
     echo "$NGC_API_KEY" | docker login nvcr.io --username '$oauthtoken' --password-stdin
     ```
 
-## 2.2 Access to the local RAG Blueprint Repository
+### 2.1.2 Access to the local RAG Blueprint Repository
 
 The RAG Blueprint was downloaded from `https://github.com/NVIDIA-AI-Blueprints/rag.git` to the local folder:
 
@@ -26,7 +26,7 @@ The RAG Blueprint was downloaded from `https://github.com/NVIDIA-AI-Blueprints/r
    cd ~/workspace/rag
    ``` 
 
-## 2.3 Start Enterprise RAG services
+### 2.1.3 Start Enterprise RAG services
 
 Use the following procedure to start all containers needed for this blueprint.
 
@@ -111,13 +111,13 @@ Use the following procedure to start all containers needed for this blueprint.
     969b9f5c987c   compose-table-structure-1        Up 10 minutes
     ```
 
-## 2.4 Experiment with the Web User Interface
+### 2.1.4 Experiment with the Web User Interface
 
 After the RAG Blueprint is deployed, you can use the RAG UI to start experimenting with it.
 
 1. Open a web browser and access the RAG UI. You can start experimenting by uploading docs and asking questions. For details, see [User Interface for NVIDIA RAG Blueprint](user-interface.md).
 
-## Shut down services
+## 2.3 Shut down services
 
 1. To stop all running services, run the following code.
 
@@ -126,84 +126,9 @@ After the RAG Blueprint is deployed, you can use the RAG UI to start experimenti
     docker compose -f deploy/compose/nims.yaml down
     docker compose -f deploy/compose/docker-compose-rag-server.yaml down
     docker compose -f deploy/compose/vectordb.yaml down
+    docker volume ls -q --filter "name=^rag-vol-" | xargs -r docker volume rm
     ```
-
-
-## Service Port and GPU Reference
-
-For a complete reference of all services, their port mappings, and GPU assignments, see [Service Port and GPU Reference](service-port-gpu-reference.md)
-
-
-## Advanced Deployment Considerations
-
-After the first time you deploy the RAG Blueprint successfully, you can consider the following advanced deployment options:
-
-- For information about advanced settings, see [Best Practices for Common Settings](accuracy_perf.md).
-
-- To turn on recommended configurations for accuracy optimized profile set additional configs by running the following code:
-
-   ```bash
-   source deploy/compose/accuracy_profile.env
-   ```
-
-- To turn on recommended configurations for performance optimized profile set additional configs by running the following code:
-
-   ```bash
-   source deploy/compose/perf_profile.env
-   ```
-
-- To start just the services specific to RAG or ingestion add the `--profile rag` or `--profile ingest` flag to the code. For example:
-
-   ```bash
-   USERID=$(id -u) docker compose -f deploy/compose/nims.yaml --profile rag up -d
-   ```
-
-- If you make code changes and want to redeploy services, add the --build flag to your code.  For example:
-
-   ```bash
-   docker compose -f deploy/compose/docker-compose-*-server.yaml up -d --build
-   ```
-
-By default, Elasticsearch is deployed as the vector database (`vectordb.yaml` with the default profile). Milvus is optional. You can start Milvus with `docker compose -f deploy/compose/vectordb.yaml --profile milvus up -d` and set `APP_VECTORSTORE_NAME` / `APP_VECTORSTORE_URL` for Milvus (see [Vector database configuration](change-vectordb.md)). When you use the Milvus profile, Milvus can run as GPU-accelerated. Choose the GPU ID using the following variables. For all service port mappings and GPU assignments, refer to [Service Port and GPU Reference](service-port-gpu-reference.md).
-
-   ```bash
-   VECTORSTORE_GPU_DEVICE_ID=0
-   ```
-
-- For improved accuracy, consider enabling reasoning mode. For details, refer to [Enable thinking](./enable-nemotron-thinking.md).
-
-
-- Nemotron OCR is now the default OCR service. To use legacy Paddle OCR instead, refer to [OCR Configuration Guide](nemoretriever-ocr.md).
-
-- For advanced users who need direct filesystem access to extraction results, refer to [Ingestor Server Volume Mounting](mount-ingestor-volume.md).
-
-- A single NVIDIA A100-80GB or H100-80GB, B200 GPU can be used to start non-LLM NIMs (nemotron-vlm-embedding-ms, nemotron-ranking-ms, and ingestion services like page-elements, ocr, graphic-elements, and table-structure) for ingestion and RAG workflows. You can control which GPU is used for each service by setting these environment variables in `deploy/compose/.env` file before launching. For a complete list of all services and their default GPU assignments, see [Service Port and GPU Reference](service-port-gpu-reference.md).
-
-   ```bash
-   EMBEDDING_MS_GPU_ID=0
-   VLM_EMBEDDING_MS_GPU_ID=0
-   RANKING_MS_GPU_ID=0
-   YOLOX_MS_GPU_ID=0
-   YOLOX_GRAPHICS_MS_GPU_ID=0
-   YOLOX_TABLE_MS_GPU_ID=0
-   OCR_MS_GPU_ID=0
-   ```
-
-- If the NIMs are deployed in a different workstation or outside the nvidia-rag docker network on the same system, replace the host address of the below URLs with workstation IPs.
-
-   ```bash
-   APP_EMBEDDINGS_SERVERURL="workstation_ip:8000"
-   APP_LLM_SERVERURL="workstation_ip:8000"
-   APP_RANKING_SERVERURL="workstation_ip:8000"
-   OCR_GRPC_ENDPOINT="workstation_ip:8001"
-   YOLOX_GRPC_ENDPOINT="workstation_ip:8001"
-   YOLOX_GRAPHIC_ELEMENTS_GRPC_ENDPOINT="workstation_ip:8001"
-   YOLOX_TABLE_STRUCTURE_GRPC_ENDPOINT="workstation_ip:8001"
-   ```
-
-
-
-## Related Topics
+## 2.4 Related Topics
 
 - [NVIDIA RAG Blueprint Documentation](readme.md)
 - [Best Practices for Common Settings](accuracy_perf.md)
