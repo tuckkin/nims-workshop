@@ -1,4 +1,5 @@
 # Lab 1 - Simple NIM Deploy
+In this Hands-On Lab, you will deploy a NIM container with LLM model. Then you will need to run performance benchmarking test on your deployed NIM
 
 ## 1.1 Deploy NIM
 
