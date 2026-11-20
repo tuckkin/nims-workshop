@@ -6,9 +6,11 @@ In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for
 
 1. Go to https://build.nvidia.com/ and login using your NVIDIA account.
 <br>
+
 2. Create an API Key
     Refer to https://docs.nvidia.com/nim/large-language-models/latest/getting-started.html#launch-nvidia-nim-for-llms
 <br>
+
 3. Using the API Key, perform docker login to nvcr.io
     ```bash
     export NGC_API_KEY="<YOUR_NGC_API_KEY>"
