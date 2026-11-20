@@ -39,7 +39,6 @@ Use the following procedure to start all containers needed for this blueprint.
    export MODEL_DIRECTORY=~/.cache/model-cache
    ```
 
-
 2. Export all the required environment variables to use on-prem and hosted models.
 
    ```bash
@@ -48,15 +47,11 @@ Use the following procedure to start all containers needed for this blueprint.
 
 4. Start all required NIMs by running the following code.
 
-   :::{warning}
-   Do not attempt this step unless you have completed the previous steps.
-   :::
-
    ```bash
    USERID=$(id -u) docker compose -f deploy/compose/nims.yaml up -d
    ```
 
-5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms` and `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further.
+5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms` and `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further. <br>
 (<b>Note</b>: Most of the RAG components, including the Ranking and Embedding models will be running on-premise, except for LLM model `nim-llm-ms` which is the NVIDIA-hosted LLM model on cloud due to GPU resource constraint)
 
      ```bash
