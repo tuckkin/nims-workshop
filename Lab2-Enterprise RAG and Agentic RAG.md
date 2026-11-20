@@ -151,4 +151,5 @@ Second, change the `Pipeline` to `Agentic`, then repeat the same queries from th
 
 - [NVIDIA RAG Blueprint Documentation](https://github.com/NVIDIA-AI-Blueprints/rag/)
 - [NVIDIA RAG Blueprint Self-Hosted Deployment with Docker Compose](https://github.com/NVIDIA-AI-Blueprints/rag/blob/v2.6.2/docs/deploy-docker-self-hosted.md)
+- [Agentic RAG for NVIDIA RAG Blueprint Self-Hosted Deployment](https://github.com/NVIDIA-AI-Blueprints/rag/blob/v2.6.2/docs/agentic-rag.md)
 
