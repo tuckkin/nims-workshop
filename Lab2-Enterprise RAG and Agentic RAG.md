@@ -59,11 +59,11 @@ Use the following procedure to start all containers needed for this blueprint.
      ```output
         NAMES                                   STATUS
 
-        nemotron-ranking-ms      Up 4 minutes (healthy)
+        nemotron-ranking-ms           Up 4 minutes (healthy)
         compose-graphic-elements-1    Up 4 minutes
         compose-page-elements-1       Up 4 minutes
-        nemotron-vlm-embedding-ms Up 4 minutes (healthy)
-        compose-nemotron-ocr-1   Up 4 minutes
+        nemotron-vlm-embedding-ms     Up 4 minutes (healthy)
+        compose-nemotron-ocr-1        Up 4 minutes
         compose-table-structure-1     Up 4 minutes
      ```
 
@@ -102,7 +102,6 @@ Use the following procedure to start all containers needed for this blueprint.
     77f64a4a5146   compose-redis-1                  Up 2 minutes
     902445432dde   elasticsearch                    Up 3 minutes (healthy)
     340bc8210a0d   seaweedfs                        Up 3 minutes (healthy)
-    62eabf1d9f65   nim-llm-ms                       Up 10 minutes (healthy)
     fe2751bfa734   nemotron-ranking-ms         Up 10 minutes (healthy)
     7b5ddabf8be7   compose-graphic-elements-1       Up 10 minutes
     ecfaa5190302   compose-page-elements-1          Up 10 minutes
