@@ -20,7 +20,7 @@ In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for
 
 ## 2.2 Access to the local RAG Blueprint Repository
 
-The RAG Blueprint was downloaded from ` https://github.com/NVIDIA-AI-Blueprints/rag.git` to the local folder:
+The RAG Blueprint was downloaded from `https://github.com/NVIDIA-AI-Blueprints/rag.git` to the local folder:
 
 1. Access to the cloned copy of the RAG Blueprint:  
 
@@ -28,7 +28,7 @@ The RAG Blueprint was downloaded from ` https://github.com/NVIDIA-AI-Blueprints/
    cd ~/workspace/rag
    ``` 
 
-## 2.3 Start services using self-hosted on-premises models
+## 2.3 Start Enterprise RAG services
 
 Use the following procedure to start all containers needed for this blueprint.
 
@@ -46,14 +46,6 @@ Use the following procedure to start all containers needed for this blueprint.
    source deploy/compose/.env
    ```
 
-
-3. (For A100 SXM and B200 platforms only) Run the following code to allocate 2 available GPUs before you continue with the following steps.
-
-   ```bash
-   export LLM_MS_GPU_ID=1,2
-   ```
-
-
 4. Start all required NIMs by running the following code.
 
    :::{warning}
@@ -64,7 +56,8 @@ Use the following procedure to start all containers needed for this blueprint.
    USERID=$(id -u) docker compose -f deploy/compose/nims.yaml up -d
    ```
 
-5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms`, `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further.
+5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms` and `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further.
+(<b>Note</b>: Most of the RAG components, including the Ranking and Embedding models will be running on-premise, except for LLM model `nim-llm-ms` which is the NVIDIA-hosted LLM model on cloud due to GPU resource constraint)
 
      ```bash
      watch -n 2 'docker ps --format "table {{.Names}}\t{{.Status}}"'
@@ -74,7 +67,6 @@ Use the following procedure to start all containers needed for this blueprint.
      ```output
         NAMES                                   STATUS
 
-        nim-llm-ms                    Up 4 minutes (healthy)
         nemotron-ranking-ms      Up 4 minutes (healthy)
         compose-graphic-elements-1    Up 4 minutes
         compose-page-elements-1       Up 4 minutes
@@ -84,16 +76,16 @@ Use the following procedure to start all containers needed for this blueprint.
      ```
 
 
-6. Persistent data (Elasticsearch, SeaweedFS, Milvus/etcd, LanceDB, and the ingestor-server scratch dir) is stored in dedicated `rag-vol-*` Docker named volumes, which Docker Compose creates automatically the first time you bring the stack up. For inspection, backup, and reset commands — and for migrating data from the legacy `deploy/compose/volumes/` host directory — see [Manage Persistent Data Volumes](troubleshooting.md#manage-persistent-data-volumes) in the troubleshooting guide.
+7. Persistent data (Elasticsearch, SeaweedFS, Milvus/etcd, LanceDB, and the ingestor-server scratch dir) is stored in dedicated `rag-vol-*` Docker named volumes, which Docker Compose creates automatically the first time you bring the stack up. For inspection, backup, and reset commands — and for migrating data from the legacy `deploy/compose/volumes/` host directory — see [Manage Persistent Data Volumes](troubleshooting.md#manage-persistent-data-volumes) in the troubleshooting guide.
 
-7. Start the vector db containers from the repo root.
+8. Start the vector db containers from the repo root.
 
    ```bash
    docker compose -f deploy/compose/vectordb.yaml up -d
    ```
 
 
-8. Start the ingestion containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
+9. Start the ingestion containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
 
    ```bash
    docker compose -f deploy/compose/docker-compose-ingestor-server.yaml up -d
@@ -146,7 +138,7 @@ Use the following procedure to start all containers needed for this blueprint.
     ```
 
 
-9. Start the RAG containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
+10. Start the RAG containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
 
     ```bash
     docker compose -f deploy/compose/docker-compose-rag-server.yaml up -d
@@ -190,7 +182,7 @@ Use the following procedure to start all containers needed for this blueprint.
     ```
 
 
-10. Check the status of the deployment by running the following code.
+11. Check the status of the deployment by running the following code.
 
     ```bash
     docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
