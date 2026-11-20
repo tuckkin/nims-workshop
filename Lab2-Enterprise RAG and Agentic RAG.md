@@ -117,6 +117,8 @@ After the RAG Blueprint is deployed, you can use the RAG UI to start experimenti
 
 1. Open a web browser and access the RAG UI. You can start experimenting by uploading docs and asking questions. For details, see [User Interface for NVIDIA RAG Blueprint](user-interface.md).
 
+## 2.2 Deploy Agentic RAG
+
 ## 2.3 Shut down services
 
 1. To stop all running services, run the following code.
