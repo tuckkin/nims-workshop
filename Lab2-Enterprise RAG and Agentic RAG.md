@@ -1,13 +1,6 @@
+# Lab 2 - Deployment Enterprise RAG and Agentic RAG
 
-<!--
-  SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-  SPDX-License-Identifier: Apache-2.0
--->
-# Get Started With the NVIDIA RAG Blueprint
-
-Use the following documentation to get started quickly with the [NVIDIA RAG Blueprint](readme.md).
-In this walkthrough you deploy the NVIDIA RAG Blueprint with Docker Compose for a single node deployment, and using self-hosted on-premises models.
-For other deployment options, refer to [Deployment Options](readme.md#deployment-options-for-rag-blueprint).
+In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for a single node deployment, and using NVIDIA-hosted LLM model on cloud.
 
 :::{tip}
 If you want to run the RAG Blueprint with [NVIDIA AI Workbench](https://docs.nvidia.com/ai-workbench/user-guide/latest/overview/introduction.html), use [Quickstart for NVIDIA AI Workbench](https://github.com/NVIDIA-AI-Blueprints/rag/blob/main/deploy/workbench/README.md).
