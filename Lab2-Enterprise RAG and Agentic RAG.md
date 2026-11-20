@@ -115,7 +115,7 @@ Use the following procedure to start all containers needed for this blueprint.
 
 After the RAG Blueprint is deployed, you can use the RAG UI to start experimenting with it.
 
-1. Open a web browser and access the RAG UI. You can start experimenting by uploading docs and asking questions. For details, see [User Interface for NVIDIA RAG Blueprint](user-interface.md).
+1. Open a web browser and access the RAG UI (http://localhost:8090). You can start experimenting by uploading docs and asking questions. For details, see [User Interface for NVIDIA RAG Blueprint](https://github.com/NVIDIA-AI-Blueprints/rag/blob/v2.6.2/docs/user-interface.md).
 
 ## 2.2 Deploy Agentic RAG
 
