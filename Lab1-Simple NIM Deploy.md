@@ -1,4 +1,4 @@
-# 1. Simple NIM Deploy
+# Lab 1 - Simple NIM Deploy
 
 ## 1.1 Deploy NIM
 
