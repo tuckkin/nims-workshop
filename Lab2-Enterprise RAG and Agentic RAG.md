@@ -5,18 +5,15 @@ In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for
 ## 2.1 Register for NVIDIA account and request for API Key
 
 1. Go to https://build.nvidia.com/ and login using your NVIDIA account.
-<br>
 
 2. Create an API Key
     Refer to https://docs.nvidia.com/nim/large-language-models/latest/getting-started.html#launch-nvidia-nim-for-llms
-<br>
 
 3. Using the API Key, perform docker login to nvcr.io
     ```bash
     export NGC_API_KEY="<YOUR_NGC_API_KEY>"
     echo "$NGC_API_KEY" | docker login nvcr.io --username '$oauthtoken' --password-stdin
     ```
-<br>
 
 ## 2.2 Access to the local RAG Blueprint Repository
 
@@ -51,7 +48,8 @@ Use the following procedure to start all containers needed for this blueprint.
    USERID=$(id -u) docker compose -f deploy/compose/nims.yaml up -d
    ```
 
-5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms` and `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further. <br>
+5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms` and `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further.
+
 (<b>Note</b>: Most of the RAG components, including the Ranking and Embedding models will be running on-premise, except for LLM model `nim-llm-ms` which is the NVIDIA-hosted LLM model on cloud due to GPU resource constraint)
 
      ```bash
