@@ -2,7 +2,7 @@
 
 In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for a single node deployment, and using NVIDIA-hosted LLM model on cloud.
 
-## 2.1 Deploy NIM
+## 2.1 Register for NVIDIA account and request for API Key
 
 1. Go to https://build.nvidia.com/ and login using your NVIDIA account.
 <br>
@@ -18,37 +18,17 @@ In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for
     ```
 <br>
 
-## Clone the RAG Blueprint Git repository
+## 2.2 Access to the local RAG Blueprint Repository
 
-You can clone the RAG Blueprint repository to create a local working copy that you can run and modify, with full git history and an easy way to update from upstream.
+The RAG Blueprint was downloaded from ` https://github.com/NVIDIA-AI-Blueprints/rag.git` to the local folder:
 
-1. Confirm that Git is installed on your machine. [git-scm](https://git-scm.com/docs/git-clone)
-2. Open a terminal and navigate to the directory where you want the project. [git-scm](https://git-scm.com/docs/git-clone)
-3. Clone the repository:  
+1. Access to the cloned copy of the RAG Blueprint:  
 
    ```bash
-   git clone https://github.com/NVIDIA-AI-Blueprints/rag.git
-   ```  
-
-4. Change into the cloned directory:  
-
-   ```bash
-   cd rag
+   cd ~/workspace/rag
    ``` 
- 
-5. Fetch all remote branches and tags (optional but useful): 
 
-   ```bash
-   git fetch --all --tags
-   ``` 
- 
-6. Check out the latest release branch:  
-
-   ```bash
-   git checkout release-<latest-release>
-   ```   
-
-## Start services using self-hosted on-premises models
+## 2.3 Start services using self-hosted on-premises models
 
 Use the following procedure to start all containers needed for this blueprint.
 
