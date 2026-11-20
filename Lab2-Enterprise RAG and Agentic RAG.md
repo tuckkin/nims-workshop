@@ -132,9 +132,6 @@ After the RAG Blueprint is deployed, you can use the RAG UI to start experimenti
     ```
 ## 2.4 Related Topics
 
-- [NVIDIA RAG Blueprint Documentation](https://github.com/NVIDIA-AI-Blueprints)
-- [Best Practices for Common Settings](accuracy_perf.md)
-- [Multi-Turn Conversation Support](multiturn.md)
-- [RAG Pipeline Debugging Guide](debugging.md)
-- [Troubleshoot](troubleshooting.md)
-- [Notebooks](notebooks.md)
+- [NVIDIA RAG Blueprint Documentation](https://github.com/NVIDIA-AI-Blueprints/rag/)
+- [NVIDIA RAG Blueprint Self-Hosted Deployment with Docker Compose](https://github.com/NVIDIA-AI-Blueprints/rag/blob/v2.6.2/docs/deploy-docker-self-hosted.md)
+
