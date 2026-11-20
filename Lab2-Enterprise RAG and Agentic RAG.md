@@ -132,7 +132,7 @@ After the RAG Blueprint is deployed, you can use the RAG UI to start experimenti
     ```
 ## 2.4 Related Topics
 
-- [NVIDIA RAG Blueprint Documentation](readme.md)
+- [NVIDIA RAG Blueprint Documentation](https://github.com/NVIDIA-AI-Blueprints)
 - [Best Practices for Common Settings](accuracy_perf.md)
 - [Multi-Turn Conversation Support](multiturn.md)
 - [RAG Pipeline Debugging Guide](debugging.md)
