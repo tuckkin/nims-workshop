@@ -49,7 +49,7 @@ Use the following procedure to start all containers needed for this blueprint.
    ```
 
 5. Check the status of the deployment by running the following code. Wait until all services are up and the `nemotron-ranking-ms` and `nemotron-vlm-embedding-ms`, and `nim-llm-ms` NIMs are in healthy state before proceeding further.<br><br>
-(<b>Note</b>: Most of the RAG components, including the Ranking and Embedding models will be running on-premise, except for LLM model `nim-llm-ms` which is the NVIDIA-hosted LLM model on cloud due to GPU resource constraint)
+<b>Note</b>: Most of the RAG components, including the Ranking and Embedding models will be running on-premise, except for LLM model `nim-llm-ms` which is the NVIDIA-hosted LLM model on cloud due to GPU resource constraint
 
      ```bash
      watch -n 2 'docker ps --format "table {{.Names}}\t{{.Status}}"'
@@ -67,114 +67,25 @@ Use the following procedure to start all containers needed for this blueprint.
         compose-table-structure-1     Up 4 minutes
      ```
 
-
-7. Persistent data (Elasticsearch, SeaweedFS, Milvus/etcd, LanceDB, and the ingestor-server scratch dir) is stored in dedicated `rag-vol-*` Docker named volumes, which Docker Compose creates automatically the first time you bring the stack up. For inspection, backup, and reset commands — and for migrating data from the legacy `deploy/compose/volumes/` host directory — see [Manage Persistent Data Volumes](troubleshooting.md#manage-persistent-data-volumes) in the troubleshooting guide.
-
-8. Start the vector db containers from the repo root.
+6. Start the vector db containers from the repo root.
 
    ```bash
    docker compose -f deploy/compose/vectordb.yaml up -d
    ```
 
-
-9. Start the ingestion containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
+7. Start the ingestion containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
 
    ```bash
    docker compose -f deploy/compose/docker-compose-ingestor-server.yaml up -d
    ```
 
-   You can check the status of the ingestor-server and running the following code.
-
-   ```bash
-   curl -X 'GET' 'http://workstation_ip:8082/v1/health?check_dependencies=true' -H 'accept: application/json'
-   ```
-
-    You should see output similar to the following.
-
-    ```bash
-    {
-        "message": "Service is up.",
-        "databases": [
-            ...
-        ],
-        "object_storage": [
-            ...
-        ],
-        "nim": [
-            {
-                "service": "Embeddings",
-                "status": "healthy",
-                ...
-            },
-            {
-                "service": "Summary LLM",
-                "status": "healthy",
-                ...
-            }
-        ],
-        "processing": [
-            {
-                "service": "NeMo Retriever Library",
-                "status": "healthy",
-                ...
-            }
-        ],
-        "task_management": [
-            {
-                "service": "Redis",
-                "status": "healthy",
-                ...
-            }
-        ]
-    }
-    ```
-
-
-10. Start the RAG containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
+8. Start the RAG containers from the repo root. This pulls the prebuilt containers from NGC and deploys them on your system.
 
     ```bash
     docker compose -f deploy/compose/docker-compose-rag-server.yaml up -d
     ```
 
-    You can check the status of the rag-server by running the following code.
-
-    ```bash
-    curl -X 'GET' 'http://workstation_ip:8081/v1/health?check_dependencies=true' -H 'accept: application/json'
-    ```
-
-    You should see output similar to the following.
-
-    ```bash
-    {
-        "message": "Service is up.",
-        "databases": [
-            ...
-        ],
-        "object_storage": [
-            ...
-        ],
-        "nim": [
-        {
-            "service": "LLM",
-            "status": "healthy",
-            ...
-        },
-        {
-            "service": "Embeddings",
-            "status": "healthy",
-            ...
-        },
-        {
-            "service": "Ranking",
-            "status": "healthy",
-            ...
-        }
-      ]
-    }
-    ```
-
-
-11. Check the status of the deployment by running the following code.
+9. Check the status of the deployment by running the following code.
 
     ```bash
     docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
@@ -200,21 +111,11 @@ Use the following procedure to start all containers needed for this blueprint.
     969b9f5c987c   compose-table-structure-1        Up 10 minutes
     ```
 
-
-
-## Experiment with the Web User Interface
+## 2.4 Experiment with the Web User Interface
 
 After the RAG Blueprint is deployed, you can use the RAG UI to start experimenting with it.
 
 1. Open a web browser and access the RAG UI. You can start experimenting by uploading docs and asking questions. For details, see [User Interface for NVIDIA RAG Blueprint](user-interface.md).
-
-
-
-## Experiment with the Ingestion API Usage Notebook
-
-After the RAG Blueprint is deployed, you can use the Ingestion API Usage notebook to start experimenting with it. For details, refer to [Experiment with the Ingestion API Usage Notebook](notebooks.md#experiment-with-the-ingestion-api-usage-notebook).
-
-
 
 ## Shut down services
 
