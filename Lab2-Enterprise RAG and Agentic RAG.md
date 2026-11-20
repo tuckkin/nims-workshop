@@ -2,43 +2,19 @@
 
 In this Hands-On Lab you deploy the NVIDIA RAG Blueprint with Docker Compose for a single node deployment, and using NVIDIA-hosted LLM model on cloud.
 
-:::{tip}
-If you want to run the RAG Blueprint with [NVIDIA AI Workbench](https://docs.nvidia.com/ai-workbench/user-guide/latest/overview/introduction.html), use [Quickstart for NVIDIA AI Workbench](https://github.com/NVIDIA-AI-Blueprints/rag/blob/main/deploy/workbench/README.md).
-:::
+## 2.1 Deploy NIM
 
-:::{tip}
-Looking for a simpler setup without Docker? Check out the [Containerless Deployment (Lite Mode)](https://github.com/NVIDIA-AI-Blueprints/rag/blob/main/notebooks/rag_library_lite_usage.ipynb) for a Python-only deployment using Milvus Lite and NVIDIA cloud APIs.
-:::
-
-
-## Prerequisites
-
-:::{warning}
-This deployment requires at least 200GB of free disk space to download and cache models, store vector databases, and run all required services. Ensure that you have sufficient storage available before you proceed.
-:::
-
-1. [Get an API Key](api-key.md).
-
-2. Install Docker Engine. For more information, see [Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
-
-   a. Use Docker Engine 24.0 or later. Docker Engine 29.5.x is not supported for this release because it can fail to pull required NGC images.
-
-3. Install Docker Compose. For more information, see [install the Compose plugin](https://docs.docker.com/compose/install/linux/).
-
-   a. Ensure the Docker Compose plugin version is 2.29.1 or later.
-
-   b. After you get the Docker Compose plugin installed, run `docker compose version` to confirm.
-
-4. To pull images required by the blueprint from NGC, you must first authenticate Docker with nvcr.io. Use the NGC API Key you created in the first step.
-
-   ```bash
-   export NGC_API_KEY="nvapi-..."
-   echo "${NGC_API_KEY}" | docker login nvcr.io -u '$oauthtoken' --password-stdin
-   ```
-
-5. Containers that are enabled with GPU acceleration, such as Milvus and NVIDIA NIMs, are deployed on-prem. To configure Docker for GPU-accelerated containers, install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
-
-6. Ensure you meet [the hardware requirements](./support-matrix.md).
+1. Go to https://build.nvidia.com/ and login using your NVIDIA account.
+<br>
+2. Create an API Key
+    Refer to https://docs.nvidia.com/nim/large-language-models/latest/getting-started.html#launch-nvidia-nim-for-llms
+<br>
+3. Using the API Key, perform docker login to nvcr.io
+    ```bash
+    export NGC_API_KEY="<YOUR_NGC_API_KEY>"
+    echo "$NGC_API_KEY" | docker login nvcr.io --username '$oauthtoken' --password-stdin
+    ```
+<br>
 
 ## Clone the RAG Blueprint Git repository
 
