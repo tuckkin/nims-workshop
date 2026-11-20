@@ -40,7 +40,7 @@ Use the following procedure to start all containers needed for this blueprint.
    ```
 
 
-2. Export all the required environment variables to use on-prem models. Verify that the section `Endpoints for using cloud NIMs` is commented in this file.
+2. Export all the required environment variables to use on-prem and hosted models.
 
    ```bash
    source deploy/compose/.env
