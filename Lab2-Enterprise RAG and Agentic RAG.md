@@ -119,7 +119,7 @@ After the RAG Blueprint is deployed, you can use the RAG UI to start experimenti
 
 ## 2.2 Enable Agentic RAG
 
-1. Flip the enable flag only.
+1. Flip the enable the flag of Agentic RAG.
 
 ```bash
 export ENABLE_AGENTIC_RAG=true
