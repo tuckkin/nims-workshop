@@ -117,7 +117,19 @@ After the RAG Blueprint is deployed, you can use the RAG UI to start experimenti
 
 1. Open a web browser and access the RAG UI (http://localhost:8090), you can start experimenting by uploading docs and asking questions. <br>For details, see [User Interface for NVIDIA RAG Blueprint](https://github.com/NVIDIA-AI-Blueprints/rag/blob/v2.6.2/docs/user-interface.md).
 
-## 2.2 Deploy Agentic RAG
+## 2.2 Enable Agentic RAG
+
+1. Flip the enable flag only.
+
+```bash
+export ENABLE_AGENTIC_RAG=true
+```
+
+2. Restart the RAG server:
+
+```bash
+docker compose -f deploy/compose/docker-compose-rag-server.yaml up -d
+```
 
 ## 2.3 Shut down services
 
