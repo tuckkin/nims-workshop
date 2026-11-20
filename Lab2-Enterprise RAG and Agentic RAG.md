@@ -131,6 +131,8 @@ export ENABLE_AGENTIC_RAG=true
 docker compose -f deploy/compose/docker-compose-rag-server.yaml up -d
 ```
 
+3. Go back to the RAG UI web browser (http://localhost:8090), scroll down from the chat box panel on the right. Change the `PIpeline` to `Agentic`, then repeat the same queries from the previous lab with Enterprise RAG and observe the changes with Agentic RAG
+
 ## 2.3 Shut down services
 
 1. To stop all running services, run the following code.
